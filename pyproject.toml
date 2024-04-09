@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dj"
+version = "0.1.0"
+description = ""
+authors = ["Carine Neris <carine_neris@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^5.0.4"
+ipdb = "^0.13.13"
+django-bootstrap4 = "^24.1"
+django-stdimage = "^6.0.2"
+python-decouple = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

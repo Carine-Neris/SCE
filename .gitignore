@@ -1,0 +1,35 @@
+# Arquivos de configuração específicos do ambiente
+*.env
+
+# Arquivos de banco de dados SQLite
+*.sqlite3
+*.db
+
+# Arquivos de migração
+/migrations/
+
+# Arquivos de byte compilado do Python
+*.pyc
+__pycache__/
+
+# Arquivos de log
+*.log
+
+# Arquivos de backup
+*.bak
+*.swp
+*~
+
+# Arquivos estáticos compilados e arquivos de mídia gerados
+/staticfiles/
+/media/
+
+# Arquivos de chave secreta (se usado em settings.py)
+*.key
+
+# Arquivos de documentação gerados
+/docs/_build/
+
+# Dependências de ambiente
+/.venv/
+.env/
