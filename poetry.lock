@@ -100,6 +100,20 @@ Django = ">=3.2"
 typing-extensions = ">=3.10.0.0"
 
 [[package]]
+name = "dj-static"
+version = "0.0.6"
+description = "Serve production static files with Django."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "dj-static-0.0.6.tar.gz", hash = "sha256:032ec1c532617922e6e3e956d504a6fb1acce4fc1c7c94612d0fda21828ce8ef"},
+]
+
+[package.dependencies]
+static3 = "*"
+
+[[package]]
 name = "django"
 version = "5.0.4"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -550,6 +564,21 @@ pure-eval = "*"
 tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
 [[package]]
+name = "static3"
+version = "0.7.0"
+description = "A really simple WSGI way to serve static (or mixed) content."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "static3-0.7.0.tar.gz", hash = "sha256:674641c64bc75507af2eb20bef7e7e3593dca993dec6674be108fa15b42f47c8"},
+]
+
+[package.extras]
+genshimagic = ["Genshi"]
+kidmagic = ["kid"]
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -616,4 +645,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "97abf77fc88245b16ea712cda487cab081b284479ccd3ef7a37d75402e37ef1c"
+content-hash = "7d1e5a7bc5ec34b517d834021bbf9828b738863da4bc9e69db0ed062cdeca34a"
