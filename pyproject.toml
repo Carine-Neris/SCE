@@ -12,6 +12,8 @@ ipdb = "^0.13.13"
 django-bootstrap4 = "^24.1"
 django-stdimage = "^6.0.2"
 python-decouple = "^3.8"
+psycopg2 = "^2.9.9"
+dj-database-url = "^2.1.0"
 
 
 [build-system]
