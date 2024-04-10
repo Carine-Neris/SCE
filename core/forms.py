@@ -1,8 +1,10 @@
 from django import forms
 from django.core.mail.message import EmailMessage
+from django.core.mail import send_mail
 
 from .models import Produto
 
+from decouple import config
 
 class ContatoForm(forms.Form):
     nome = forms.CharField(label='Nome', max_length=100)
@@ -16,15 +18,17 @@ class ContatoForm(forms.Form):
         assunto = self.cleaned_data['assunto']
         mensagem = self.cleaned_data['mensagem']
 
-        conteudo = f'Nome={nome}\nE-mail:{email}\nAssunto:{assunto}\nMensagem:{mensagem}'
-        mail = EmailMessage(
-            subject='E-mail enviado pelo sistema',
-            body=conteudo,
-            from_email='contato@meuemail.com.br',
-            to=['contato@meuemail.com.br',],
-            headers={'Reply-To':email}
-        )
-        mail.send()    
+        conteudo = f'Nome: {nome}\nE-mail: {email}\nMensagem: {mensagem}'
+        de = config('EMAIL_HOST_USER')
+        para = [config('EMAIL_HOST_USER'),]
+
+        send_mail(
+            assunto,
+            conteudo,
+            de,
+            para,
+            fail_silently=False,
+        )   
 
 
 class ProdutoModelForm(forms.ModelForm):

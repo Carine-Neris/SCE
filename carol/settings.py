@@ -12,9 +12,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -115,13 +115,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-# Configuração de E-mail
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-"""
-EMAIL_HOST = 'localhost'
-EMAIL_HOST_USER ='email'
-EMAIL_PORT = 587
-EMAIL_USER_TSL= True
-EMAIL_HOST_PASSWORD = 'senha'
-"""
+# Configuração de E-mail
+if DEBUG == True:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER =config('EMAIL_HOST_USER')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_USE_TLS= config('EMAIL_USE_TLS', default=False, cast=bool)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
